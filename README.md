@@ -24,3 +24,8 @@ Si l'utilisateur est connecté alors il a la possibilté d'ajouter des articles.
 
 Si l'utilisateur est connecté alors il a la possibilté de modifier ses articles. Pour cela il doit modifier le formulaire affiché, à savoir le titr et le corps de l'article. La date de modification est automatiquement ajouté dans la base de donnée.
 
+
+### Déconnexion
+
+Une fois l'utilisateur connecté, celui-ci peut se déconnecter à tout moment et depuis n'importe quelle page. Cela ferme la session mais supprime aussi le cookie du navigateur.
+
