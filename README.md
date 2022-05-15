@@ -15,9 +15,14 @@ L'utilisateur à la possiblité de créer son propre compte avec un email et un 
 Si l'utilisateur possède un compte et que ses identifiants de connexion sont valides alors il arrive sur la page listant tous ses articles. Dans le cas contraire des indications sont affichées sur la page.
 
 
+### Visualiser les articles de l'utilisateur
+
+Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi agir dessus, c'est-à-dire le modifier.
+
+
 ### Ajouter un article
 
-Si l'utilisateur est connecté alors il a la possibilté d'ajouter des articles. Pour cela il doit remplir le formulaire affiché, à savoir le titre et le corps de l'article. La date d'ajout est automatiquement ajouté dans la base de donnée.
+Une fois l'utilisateur connecté, il a la possibilté d'ajouter des articles. Pour cela il doit remplir le formulaire affiché, à savoir le titre et le corps de l'article. La date d'ajout est automatiquement ajouté dans la base de donnée.
 
 
 ### Modifier un article
@@ -37,5 +42,8 @@ Pour tout les utilisateurs connectés ou non, ils peuvent avoir accès à la lis
 
 ### Redirection automatique
 
-Toutes les pages sont protégés et renvoient vers la page la plus adapté. Par exemple, un utilisateur non connecté ne peut pas ajouter ou modifier des articles tandis qu'un utilisateur connecté ne peut modifier que ses article à lui
+Toutes les pages sont protégés et renvoient vers la page la plus adapté. Par exemple, un utilisateur non connecté ne peut pas ajouter ou modifier des articles tandis qu'un utilisateur connecté ne peut modifier que ses article à lui.
+
+
+
 
