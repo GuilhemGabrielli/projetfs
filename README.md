@@ -1,6 +1,10 @@
 # projetfs
- Exercice de création d'un blog en PHP
+ Création d'un mini-site de gestion de blog en PHP
 
 ------------------------------
 
 ## Fonctionnalités
+
+### S'enregistrer
+
+
