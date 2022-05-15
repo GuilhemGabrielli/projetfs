@@ -17,7 +17,7 @@ Si l'utilisateur possède un compte et que ses identifiants de connexion sont va
 
 ### Visualiser les articles de l'utilisateur
 
-Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi agir dessus, c'est-à-dire le modifier.
+Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi agir dessus, c'est-à-dire les modifier.
 
 
 ### Ajouter un article
