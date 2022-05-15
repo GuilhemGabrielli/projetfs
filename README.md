@@ -29,3 +29,8 @@ Si l'utilisateur est connecté alors il a la possibilté de modifier ses article
 
 Une fois l'utilisateur connecté, celui-ci peut se déconnecter à tout moment et depuis n'importe quelle page. Cela ferme la session mais supprime aussi le cookie du navigateur.
 
+
+### Voir tous les articles
+
+Pour tout les utilisateurs connectés ou non, ils peuvent avoir accès à la liste de tous les articles ainsi qu'à leur auteur.
+
