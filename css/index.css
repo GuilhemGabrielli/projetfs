@@ -1,0 +1,9 @@
+h1 {
+    color: red;
+}
+
+
+table {
+    display: flex;
+    justify-content: center;
+}
