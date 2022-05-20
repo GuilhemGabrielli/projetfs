@@ -26,6 +26,6 @@
 
     $bdd->ajouterArticle($titre, $corps, $today, $id_user);
 
-    header("Location: articles_user.php")
+    header("Location: articles_user_form.php")
 
 ?>

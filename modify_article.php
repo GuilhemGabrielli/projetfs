@@ -30,7 +30,7 @@
     $bdd = new MyBDD;
     $bdd->modifierArticle($id_article, $email, $titre, $corps);
 
-    header('Location: articles_user.php');
+    header('Location: articles_user_form.php');
 
     // echo json_encode($result);
 

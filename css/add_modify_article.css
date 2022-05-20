@@ -1,0 +1,10 @@
+#div-form {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    padding: 1%;
+    background-color: rgb(217, 223, 223);
+    border-radius: 5px;
+}
