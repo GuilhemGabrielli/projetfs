@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        require_once('header.php');
+        require_once('header_form.php');
         require_once('outils.php');
         require_once('bdd.php');
 

@@ -171,12 +171,14 @@
      */
     function afficherArticles(array $articles, bool $articlesOfUser) {
         if ($articles != [] and json_encode($articles[0]["titre"]) !== "null") {
-            echo "<table><tr><th>Titre</th><th>Corps</th><th>Créé le</th><th>Modifié le</th>";
+            // echo "<table><tr><th>Titre</th><th>Corps</th><th>Créé le</th><th>Modifié le</th>";
 
-            if (!$articlesOfUser) {
-                echo "<th>Auteur</th>";
-            }
-            echo "</tr>";
+            // if (!$articlesOfUser) {
+            //     echo "<th>Auteur</th>";
+            // }
+            // echo "</tr>";
+
+            echo '<div class="articles">';
             
             foreach ($articles as $article) {
                 $id = $article['id'];
@@ -184,23 +186,50 @@
                 $corps = $article["corps"];
                 $created_at = $article["created_at"];
                 $updated_at = $article["updated_at"];
-                
-                echo "<tr>";
+
+                echo "<div class='article'>";
 
                 if ($articlesOfUser) {
                     echo "<form action='modify_article_form.php?id=$id' method='post'>";
                 }
 
-                echo "<th>$titre</th><th>$corps</th><th>$created_at</th><th>$updated_at</th>";
+                echo "<h3>$titre</h3><hr><p>Créé le $created_at";
+
+                if (!$articlesOfUser) {
+                    $auteur = $article["email"];
+                    echo " par $auteur";
+                }
+                if ($updated_at !== null) {
+                    echo ", modifié le $updated_at";
+                }
+
+                echo "</p><hr><p>$corps</p>";
 
                 if ($articlesOfUser) {
-                    echo "<th><button type='submit'>Modifier</button></th></form>";
-                } else {
-                    $auteur = $article["email"];
-                    echo "<th>$auteur</th>";
+                    echo "<hr><button type='submit'>Modifier</button></form>";
                 }
-                echo "</tr></table";
+                
+                echo "</div>";
+            
+
+                
+                // echo "<tr>";
+
+                // if ($articlesOfUser) {
+                //     echo "<form action='modify_article_form.php?id=$id' method='post'>";
+                // }
+
+                // echo "<th>$titre</th><th>$corps</th><th>$created_at</th><th>$updated_at</th>";
+
+                // if ($articlesOfUser) {
+                //     echo "<th><button type='submit'>Modifier</button></th></form>";
+                // } else {
+                //     $auteur = $article["email"];
+                //     echo "<th>$auteur</th>";
+                // }
+                // echo "</tr></table";
             }
+            echo "</div>";
         } else {
             echo "<p>Aucun article publié</p>";
         }
