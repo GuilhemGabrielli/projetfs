@@ -19,7 +19,6 @@ Si l'utilisateur possède un compte et que ses identifiants de connexion sont va
 
 Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi agir dessus, c'est-à-dire les modifier.
 
-
 <img src="img/user_article.jpg">
 
 
@@ -27,10 +26,14 @@ Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi ag
 
 Une fois l'utilisateur connecté, il a la possibilté d'ajouter des articles. Pour cela il doit remplir le formulaire affiché, à savoir le titre et le corps de l'article. La date d'ajout est automatiquement ajouté dans la base de donnée.
 
+<img src="img/add_article.jpg>
+
 
 ### Modifier un article
 
 Si l'utilisateur est connecté alors il a la possibilté de modifier ses articles. Pour cela il doit modifier le formulaire affiché, à savoir le titr et le corps de l'article. La date de modification est automatiquement ajouté dans la base de donnée.
+
+<img src="img/modify_article.jpg>
 
 
 ### Déconnexion
