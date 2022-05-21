@@ -19,7 +19,7 @@ Si l'utilisateur possède un compte et que ses identifiants de connexion sont va
 
 Si l'utilisateur est connecté alors il peut visualiser ses articles et ainsi agir dessus, c'est-à-dire les modifier.
 
-<img src="img/user_article.jpg">
+<img src="img/user_articles.jpg">
 
 
 ### Ajouter un article
