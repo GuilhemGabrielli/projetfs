@@ -20,10 +20,10 @@
     ?>
     <div id="div-form">
         <form action="add_article.php" method="post">
-            <label for="titre">titre de l'article</label>
+            <label for="titre">Titre de l'article : </label>
             <p><input type="text" name="titre" required></p>
 
-            <label for="corps">corps de l'article</label>
+            <label for="corps">Corps de l'article : </label>
             <p><textarea type="text" name="corps" cols="30" rows="10" required></textarea></p>
 
             <button type="submit">Envoyer</button>

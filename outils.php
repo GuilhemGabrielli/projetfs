@@ -247,7 +247,7 @@
         $titre = $article['titre'];
         $corps = $article['corps'];
         echo "<div id='div-form'><form action='modify_article.php?id=$id' method='post'>";
-        echo "<p><label>Nouveau titre : </label><input type='text' name='titre' placeholder='$titre' value='$titre' required></p>";
+        echo "<label>Nouveau titre : </label><p><input type='text' name='titre' placeholder='$titre' value='$titre' required></p>";
         echo "<p>Nouveau corps : </p>";
         echo "<textarea type='text' name='corps' cols='30' rows='10' required>$corps</textarea><br>";
         echo "<button type='submit'>Valider</button>";
