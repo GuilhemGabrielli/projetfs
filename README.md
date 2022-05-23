@@ -9,10 +9,14 @@ Création d'un mini-site de gestion de blog en PHP.
 
 L'utilisateur à la possiblité de créer son propre compte avec un email et un mot de passe.
 
+<img src="img/inscription.jpg">
+
 
 ### Se connecter
 
 Si l'utilisateur possède un compte et que ses identifiants de connexion sont valides alors il arrive sur la page listant tous ses articles. Dans le cas contraire des indications sont affichées sur la page.
+
+<img src="img/connexion.jpg">
 
 
 ### Visualiser les articles de l'utilisateur
