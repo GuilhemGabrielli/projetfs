@@ -155,7 +155,7 @@
          * @param string $email
          * @return array
          */
-        function recupererArticleAvecIdEtEmail(int $id_article, string $email): array{
+        function recupererArticleAvecIdEtEmail(int $id_article, string $email): array {
             $result = [];
             try {
                 $bdd = $this->connecterBDD();
@@ -232,6 +232,97 @@
             
             return $result;
         }
+
+
+
+        function recupererCommentairesUtilisateur(string $email): array {
+            $result = [];
+            try {
+                $bdd = $this->connecterBDD();
+                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_utilisateur, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE u.email=:email;"; 
+    
+                $requete_preparee = $bdd->prepare($rqt); 
+            
+                // Associer les paramètres : 
+                $requete_preparee->bindParam(":email", $email); 
+                $requete_preparee->execute();
+                $result = $requete_preparee->fetchAll();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+    
+            }
+    
+            return $result;
+        }
+
+
+        function recupererCommentaireAvecIdEtMail(int $id_article): array {
+            $result = [];
+            try {
+                $bdd = $this->connecterBDD();
+                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_utilisateur, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE c.id_article = 34;"; 
+    
+                $requete_preparee = $bdd->prepare($rqt); 
+            
+                // Associer les paramètres : 
+                $requete_preparee->bindParam(":id_article", $id_article); 
+                $requete_preparee->execute();
+                $result = $requete_preparee->fetchAll();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+    
+            }
+    
+            return $result;
+        }
+
+
+        function modifierCommentaire(int $id_commentaire, string $email, string $texte) {
+            $updated_at = date("Y-m-d");
+            try {
+                $bdd = $this->connecterBDD();
+                $id_utilisateur = $this->recupererInfoUtilisateurAvecEmail($email)["id"];
+                $rqt = "UPDATE commentaire SET texte=:texte, updated_at=:updated_at WHERE id=:id_commentaire AND id_utilisateur=:id_utilisateur;"; 
+
+                $requete_preparee = $bdd->prepare($rqt); 
+            
+                // Associer les paramètres : 
+                $requete_preparee->bindParam(":texte", $texte); 
+                $requete_preparee->bindParam(":updated_at", $updated_at); 
+                $requete_preparee->bindParam(":id_commentaire", $id_commentaire); 
+                $requete_preparee->bindParam(":id_utilisateur", $id_utilisateur); 
+                $requete_preparee->execute();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        
+        }
+
+        function ajouterCommentaire(string $texte, string $date_ajout, int $id_utilisateur, int $id_article): bool {
+            $result = true;
+
+            try {
+                $bdd = $this->connecterBDD();
+                $rqt = "INSERT INTO commentaire(texte, created_at, id_utilisateur, id_article) VALUES (:titre, :created_at, :id_utilisateur, :id_article);"; 
+
+                $requete_preparee = $bdd->prepare($rqt); 
+            
+                // Associer les paramètres : 
+                $requete_preparee->bindParam(":titre", $titre); 
+                $requete_preparee->bindParam(":created_at", $date_ajout); 
+                $requete_preparee->bindParam(":id_utilisateur", $id_utilisateur); 
+                $requete_preparee->bindParam(":id_article", $id_article); 
+
+                $requete_preparee->execute();
+            } catch (Exception $e) {
+                $result = false;
+                echo $e->getMessage();
+            }
+
+            return $result;
+        }
+
     }
+
 
 ?>

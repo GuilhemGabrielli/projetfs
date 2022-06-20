@@ -1,11 +1,11 @@
-.articles {
+.articles, .commentaires {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 
-.article {
+.article, .commentaire {
     width: 50%;
     background-color: rgb(217, 223, 223);
     border-radius: 5px;

@@ -171,12 +171,6 @@
      */
     function afficherArticles(array $articles, bool $articlesOfUser) {
         if ($articles != [] and json_encode($articles[0]["titre"]) !== "null") {
-            // echo "<table><tr><th>Titre</th><th>Corps</th><th>Créé le</th><th>Modifié le</th>";
-
-            // if (!$articlesOfUser) {
-            //     echo "<th>Auteur</th>";
-            // }
-            // echo "</tr>";
 
             echo '<div class="articles">';
             
@@ -187,7 +181,7 @@
                 $created_at = $article["created_at"];
                 $updated_at = $article["updated_at"];
 
-                echo "<div class='article'>";
+                echo "<div id=$id class='article'>";
 
                 if ($articlesOfUser) {
                     echo "<form action='modify_article_form.php?id=$id' method='post'>";
@@ -210,24 +204,6 @@
                 }
                 
                 echo "</div>";
-            
-
-                
-                // echo "<tr>";
-
-                // if ($articlesOfUser) {
-                //     echo "<form action='modify_article_form.php?id=$id' method='post'>";
-                // }
-
-                // echo "<th>$titre</th><th>$corps</th><th>$created_at</th><th>$updated_at</th>";
-
-                // if ($articlesOfUser) {
-                //     echo "<th><button type='submit'>Modifier</button></th></form>";
-                // } else {
-                //     $auteur = $article["email"];
-                //     echo "<th>$auteur</th>";
-                // }
-                // echo "</tr></table";
             }
             echo "</div>";
         } else {
@@ -242,7 +218,7 @@
      * @param array $article Article à modifier
      * @return void
      */
-    function afficherArticlesAModifier(array $article) {
+    function afficherArticleAModifier(array $article) {
         $id = $article['id'];
         $titre = $article['titre'];
         $corps = $article['corps'];
@@ -253,6 +229,39 @@
         echo "<button type='submit'>Valider</button>";
         echo "</form></div>";
             
+    }
+
+
+
+    function afficherCommentairesUser(array $commentairesUser) {
+        if ($commentairesUser != [] and json_encode($commentairesUser[0]["titre"]) !== "null") {
+
+            echo '<div class="commentaires">';
+            
+            foreach ($commentairesUser as $commentaireUser) {
+                $id = $commentaireUser['id'];
+                $id_article = $commentaireUser['id_article'];
+                $titreArticle = $commentaireUser['titre'];
+                $texte = $commentaireUser["texte"];
+                $created_at = $commentaireUser["created_at"];
+                $updated_at = $commentaireUser["updated_at"];
+
+                echo "<div class='commentaire'><form action='modify_commentaire_form.php?id=$id' method='post'>";
+
+                echo "<h3><a href='/index.php#$id_article'>$titreArticle</a></h3><hr><p>Créé le $created_at";
+
+                if ($updated_at !== null) {
+                    echo ", édité le $updated_at";
+                }
+
+                echo "</p><hr><p>$texte</p><hr><button type='submit'>Editer</button></form>";
+                
+                echo "</div>";
+            }
+            echo "</div>";
+        } else {
+            echo "<p>Aucun article publié</p>";
+        }
     }
 
 

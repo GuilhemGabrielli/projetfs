@@ -31,7 +31,7 @@
         if (empty($result)) {
             redirect_with_error("index.php", "acces_denied");
         }
-        afficherArticlesAModifier($result);
+        afficherArticleAModifier($result);
 
     ?>
     
