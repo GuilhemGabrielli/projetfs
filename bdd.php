@@ -326,12 +326,12 @@
 
             try {
                 $bdd = $this->connecterBDD();
-                $rqt = "INSERT INTO commentaire(texte, created_at, id_utilisateur, id_article) VALUES (:titre, :created_at, :id_utilisateur, :id_article);"; 
+                $rqt = "INSERT INTO commentaire(texte, created_at, id_utilisateur, id_article) VALUES (:texte, :created_at, :id_utilisateur, :id_article);"; 
 
                 $requete_preparee = $bdd->prepare($rqt); 
             
                 // Associer les paramètres : 
-                $requete_preparee->bindParam(":titre", $titre); 
+                $requete_preparee->bindParam(":texte", $texte); 
                 $requete_preparee->bindParam(":created_at", $date_ajout); 
                 $requete_preparee->bindParam(":id_utilisateur", $id_utilisateur); 
                 $requete_preparee->bindParam(":id_article", $id_article); 

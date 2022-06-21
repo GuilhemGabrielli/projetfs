@@ -201,20 +201,26 @@
 
                 echo "</p><hr><p>$corps</p>";
 
-                if (!empty($commentaires) && !$articlesOfUser) {
-                    echo "<hr><h4>Commentaires</h4>";
-                    foreach ($commentaires as $commentaire) {
-                        $texte = $commentaire['texte'];
-                        $auteurCommentaire = $commentaire['email'];
-                        $creationCommentaire = $commentaire['created_at'];
-                        $updatedCommentaire = $commentaire['updated_at'];
-                        echo "<p>$texte, par $auteurCommentaire, créé le $creationCommentaire";
-                        if ($updatedCommentaire !== null) {
-                            echo ", édité le $updatedCommentaire";
+                if (!$articlesOfUser) {
+                    echo "<hr><form action='add_commentaire.php?id=$id' method='post'><p>Ajouter un commentaire : <input type='text' name='texte' required><button type='submit'>Envoyer</button></p></form>";
+                    
+                    if (!empty($commentaires)) {
+                        echo "<hr><h4>Commentaires</h4>";
+                        foreach ($commentaires as $commentaire) {
+                            $texte = $commentaire['texte'];
+                            $auteurCommentaire = $commentaire['email'];
+                            $creationCommentaire = $commentaire['created_at'];
+                            $updatedCommentaire = $commentaire['updated_at'];
+                            echo "<p>$texte, par $auteurCommentaire, créé le $creationCommentaire";
+                            if ($updatedCommentaire !== null) {
+                                echo ", édité le $updatedCommentaire";
+                            }
+                            echo "</p>";
                         }
-                        echo "</p>";
                     }
                 }
+
+                
 
                 if ($articlesOfUser) {
                     echo "<hr><button type='submit'>Modifier</button></form>";
