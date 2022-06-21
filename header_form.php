@@ -11,6 +11,8 @@
         } else {
             echo '<p><a href="register_form.php">Inscription</a> ou <a href="login_form.php">Connexion</a></p>';
         }
+
+        check_and_display_error();
     ?>
 </body>
 </html>

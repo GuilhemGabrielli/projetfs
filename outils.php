@@ -175,7 +175,9 @@
             echo '<div class="articles">';
             
             foreach ($articles as $article) {
+                $bdd = new MyBDD;
                 $id = $article['id'];
+                $commentaires = $bdd->recupererCommentairesArticle($id);
                 $titre = $article['titre'];
                 $corps = $article["corps"];
                 $created_at = $article["created_at"];
@@ -198,6 +200,21 @@
                 }
 
                 echo "</p><hr><p>$corps</p>";
+
+                if (!empty($commentaires) && !$articlesOfUser) {
+                    echo "<hr><h4>Commentaires</h4>";
+                    foreach ($commentaires as $commentaire) {
+                        $texte = $commentaire['texte'];
+                        $auteurCommentaire = $commentaire['email'];
+                        $creationCommentaire = $commentaire['created_at'];
+                        $updatedCommentaire = $commentaire['updated_at'];
+                        echo "<p>$texte, par $auteurCommentaire, créé le $creationCommentaire";
+                        if ($updatedCommentaire !== null) {
+                            echo ", édité le $updatedCommentaire";
+                        }
+                        echo "</p>";
+                    }
+                }
 
                 if ($articlesOfUser) {
                     echo "<hr><button type='submit'>Modifier</button></form>";
@@ -262,6 +279,22 @@
         } else {
             echo "<p>Aucun article publié</p>";
         }
+
+    }
+
+
+
+    function afficherCommentaireAModifier(array $commentaire) {
+        $id = $commentaire['id'];
+        $titre = $commentaire['titre'];
+        $texte = $commentaire['texte'];
+        echo "<div id='div-form'><form action='modify_commentaire.php?id=$id' method='post'>";
+        echo "<label>Article : $titre</label>";
+        echo "<p>Nouveau commentaire : </p>";
+        echo "<textarea type='text' name='texte' cols='30' rows='10' required>$texte</textarea><br>";
+        echo "<button type='submit'>Valider</button>";
+        echo "</form></div>";
+            
     }
 
 

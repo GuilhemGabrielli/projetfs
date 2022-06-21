@@ -175,6 +175,7 @@
             if ($result === false) {
                 $result=[];
             }
+            print_r($result);
             return ($result);
 
         }
@@ -239,7 +240,7 @@
             $result = [];
             try {
                 $bdd = $this->connecterBDD();
-                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_utilisateur, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE u.email=:email;"; 
+                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, u.email, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE u.email=:email;"; 
     
                 $requete_preparee = $bdd->prepare($rqt); 
             
@@ -256,11 +257,11 @@
         }
 
 
-        function recupererCommentaireAvecIdEtMail(int $id_article): array {
+        function recupererCommentairesArticle(int $id_article): array {
             $result = [];
             try {
                 $bdd = $this->connecterBDD();
-                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_utilisateur, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE c.id_article = 34;"; 
+                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_article, u.email FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id WHERE c.id_article=:id_article;"; 
     
                 $requete_preparee = $bdd->prepare($rqt); 
             
@@ -273,6 +274,28 @@
     
             }
     
+            return $result;
+        }
+
+
+
+        function recupererCommentaireAvecIdEtMail(int $id_commentaire, string $email): array {
+            $result = [];
+            try {
+                $bdd = $this->connecterBDD();
+                $rqt = "SELECT c.id, c.texte, c.created_at, c.updated_at, c.id_utilisateur, c.id_article, a.titre FROM commentaire AS c LEFT JOIN utilisateur AS u ON c.id_utilisateur = u.id LEFT JOIN article AS a ON c.id_article = a.id WHERE c.id = :id_commentaire AND u.email = :email;"; 
+    
+                $requete_preparee = $bdd->prepare($rqt); 
+            
+                // Associer les paramètres : 
+                $requete_preparee->bindParam(":id_commentaire", $id_commentaire); 
+                $requete_preparee->bindParam(":email", $email); 
+                $requete_preparee->execute();
+                $result = $requete_preparee->fetchAll();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+    
+            }
             return $result;
         }
 
