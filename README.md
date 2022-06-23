@@ -35,7 +35,7 @@ Une fois l'utilisateur connecté, il a la possibilté d'ajouter des articles. Po
 
 ### Modifier un article
 
-Si l'utilisateur est connecté alors il a la possibilté de modifier ses articles. Pour cela il doit modifier le formulaire affiché, à savoir le titr et le corps de l'article. La date de modification est automatiquement ajouté dans la base de donnée.
+Si l'utilisateur est connecté alors il a la possibilté de modifier ses articles. Pour cela il doit modifier le formulaire affiché, à savoir le titre et le corps de l'article. La date de modification est automatiquement ajouté dans la base de donnée.
 
 <img src="img/modify_article.jpg">
 
@@ -47,11 +47,25 @@ Une fois l'utilisateur connecté, celui-ci peut se déconnecter à tout moment e
 <img src="img/deconnexion.jpg">
 
 
-### Voir tous les articles
+### Voir tous les articles et ajouter des commentaires
 
-Pour tout les utilisateurs connectés ou non, ils peuvent avoir accès à la liste de tous les articles ainsi qu'à leur auteur.
+Pour tout les utilisateurs connectés ou non, ils peuvent avoir accès à la liste de tous les articles ainsi qu'à leur auteur. De plus il leur est donné la possibilité d'ajouter des commentaires, de voir les commentaires publiés et leur date de modification
 
 <img src="img/all_articles.jpg">
+
+
+### Visualiser les commentaires de l'utilisateur
+
+Si l'utilisateur est connecté alors il peut visualiser ses commentaires et ainsi agir dessus, c'est-à-dire les modifier.
+
+<img src="img/user_commentaires.jpg">
+
+
+### Modifier un commentaire
+
+Si l'utilisateur est connecté alors il a la possibilté de modifier ses commentaire. Pour cela il doit modifier le formulaire affiché, à savoir le texte du commentaire. La date de modification est automatiquement ajouté dans la base de donnée.
+
+<img src="img/modify_article.jpg">
 
 
 ### Redirection automatique
