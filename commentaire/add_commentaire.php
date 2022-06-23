@@ -1,7 +1,7 @@
 <?php
     // Importation des modules nécessaires
-    require_once('outils.php');
-    require_once('bdd.php');
+    require_once('../outils.php');
+    require_once('../bdd.php');
 
     verifierSiUtilisateurConnecte();
 
@@ -16,12 +16,12 @@
         $id_article = $_GET["id"];
         settype($id_article, "int");
     } else {
-        redirect_with_error("all_articles.php", "empty");
+        redirect_with_error("../index.php", "empty");
     }
 
     function recupererChamps() {
         global $texte;
-        $resultChamp = traiterChamps(["texte"], "index.php");
+        $resultChamp = traiterChamps(["texte"], "../index.php");
         $texte = $resultChamp[0];
     }
 
@@ -32,6 +32,6 @@
 
     $bdd->ajouterCommentaire($texte, $today, $id_user, $id_article);
 
-    header("Location: index.php")
+    header("Location: ../index.php")
 
 ?>

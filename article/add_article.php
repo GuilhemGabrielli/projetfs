@@ -1,7 +1,7 @@
 <?php
     // Importation des modules nécessaires
-    require_once('outils.php');
-    require_once('bdd.php');
+    require_once('../bdd.php');
+    require_once('../outils.php');
 
     verifierSiUtilisateurConnecte();
 

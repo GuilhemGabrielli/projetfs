@@ -1,6 +1,6 @@
 <?php
-    require_once('outils.php');
-    require_once('bdd.php');
+    require_once('../outils.php');
+    require_once('../bdd.php');
 
     verifierSiUtilisateurConnecte();
 

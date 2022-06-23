@@ -11,11 +11,10 @@
     <?php
         require_once('header_form.php');
         require_once('outils.php');
-        check_and_display_error();
 
         echo "<h1>Nos articles</h1>";       
 
-        require_once('all_articles.php');
+        require_once('article/all_articles.php');
     ?>
 
 </body>

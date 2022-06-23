@@ -175,7 +175,6 @@
             if ($result === false) {
                 $result=[];
             }
-            print_r($result);
             return ($result);
 
         }

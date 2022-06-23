@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/add_modify_article.css">
+    <link rel="stylesheet" href="../css/add_modify_article.css">
 </head>
 <body>
     <?php 
-        require_once('header_form.php');
-        require_once('outils.php');
-        require_once('bdd.php');
+        require_once('../bdd.php');
+        require_once('../outils.php');
+        require_once('../header_form.php');
 
         echo "<h1>Modifier votre commentaire</h1>";
 
@@ -29,7 +29,7 @@
         $bdd = new MyBDD;
         $result = $bdd->recupererCommentaireAvecIdEtMail($id_commentaire, $email)[0];
         if (empty($result)) {
-            redirect_with_error("index.php", "acces_denied");
+            redirect_with_error("commentaires_user_form.php", "acces_denied");
         }
 
         afficherCommentaireAModifier($result)

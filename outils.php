@@ -142,7 +142,7 @@
      */
     function verifierSiUtilisateurConnecte() {
         if(empty($_SESSION["email"])) {
-            header('Location: login_form.php');
+            header('Location: ../login_form.php');
             exit;
         }
     }
@@ -202,7 +202,7 @@
                 echo "</p><hr><p>$corps</p>";
 
                 if (!$articlesOfUser) {
-                    echo "<hr><form action='add_commentaire.php?id=$id' method='post'><p>Ajouter un commentaire : <input type='text' name='texte' required><button type='submit'>Envoyer</button></p></form>";
+                    echo "<hr><form action='commentaire/add_commentaire.php?id=$id' method='post'><p>Ajouter un commentaire : <input type='text' name='texte' required><button type='submit'>Envoyer</button></p></form>";
                     
                     if (!empty($commentaires)) {
                         echo "<hr><h4>Commentaires</h4>";

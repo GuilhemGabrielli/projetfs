@@ -33,7 +33,7 @@
             } else { // Compte vérifié, début de la session
                 session_start();
                 $_SESSION["email"] = $email;
-                header('Location: articles_user_form.php');
+                header('Location: article/articles_user_form.php');
             };
         };
     }
