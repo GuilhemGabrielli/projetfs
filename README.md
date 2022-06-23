@@ -65,7 +65,7 @@ Si l'utilisateur est connecté alors il peut visualiser ses commentaires et ains
 
 Si l'utilisateur est connecté alors il a la possibilté de modifier ses commentaire. Pour cela il doit modifier le formulaire affiché, à savoir le texte du commentaire. La date de modification est automatiquement ajouté dans la base de donnée.
 
-<img src="img/modify_article.jpg">
+<img src="img/modify_commentaire.jpg">
 
 
 ### Redirection automatique
